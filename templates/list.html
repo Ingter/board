@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <table class="table table-hover">
+
+            <thead>
+                
+                <tr>
+                    <th><center>번호</center></th><th><center>제목</center></th><th><center>작성자</center></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for article in article_list %}
+                
+                <tr onclick=' location= "/article/detail/{{ article.id }}/" '>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.user.name }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
